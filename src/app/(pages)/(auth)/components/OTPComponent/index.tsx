@@ -1,10 +1,10 @@
 import React from "react";
 import { Form, Button, Input, Typography } from "antd";
 
-const { Title } = Typography;
+// const { Title } = Typography;
 
 const OTPForm: React.FC = () => {
-  const handleFinish = (values: any) => {
+  const handleFinish = (values: string) => {
     console.log("Form Submitted:", values); // Log submitted form values
   };
 
