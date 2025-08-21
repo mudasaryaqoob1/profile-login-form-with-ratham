@@ -28,7 +28,7 @@ const SignUp = () => {
                       </h1>
                     </div>
                   </div>
-                  <div className="w-full xl:max-w-[360px]">
+                  <div className="w-full md:max-w-[360px] max-w-[300px]">
                     <div className="">
                       <Inputs
                         type="text"
