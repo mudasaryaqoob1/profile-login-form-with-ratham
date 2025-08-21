@@ -53,7 +53,7 @@ const ForgotPassword = () => {
                         Don’t have an account?
                       </h1>
                       <h1 className="text-[#2D3035] font-semibold text-center font-urbanist tracking-[0%] leading-[20px] text-[14px]">
-                        Sign up
+                         <Link href="/SignUp"> Sign up</Link>
                       </h1>
                     </div>
                   </div>
