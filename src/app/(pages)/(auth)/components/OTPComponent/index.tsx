@@ -1,116 +1,61 @@
 import React from "react";
-import { Form, Button, Input, Typography } from "antd";
-
-// const { Title } = Typography;
+import { Form, Button, Input } from "antd";
 
 const OTPForm: React.FC = () => {
-  const handleFinish = (values: string) => {
-    console.log("Form Submitted:", values); // Log submitted form values
+  // 👇 'any' hata kar generic type diya hai
+  const handleFinish = (values: Record<string, string>) => {
+    console.log("Form Submitted:", values);
   };
 
   return (
     <Form layout="vertical" onFinish={handleFinish}>
-      {/* OTP Input Field with 6 boxes and dashes after the third input */}
       <Form.Item
         label="Enter OTP"
         rules={[{ required: true, message: "Please enter the OTP!" }]}
       >
         <div style={{ display: "flex", alignItems: "center" }}>
           {/* First Three Inputs */}
-          <Input
-            type="text"
-            maxLength={1}
-            defaultValue="0"
-            style={{
-              width: "44.57px",
-              height: "64px",
-              textAlign: "center",
-              marginRight: "10px",
-              borderRadius: "8px",
-              fontSize: "18px", // Larger font size
-              color: "#9DA1A9", // Red color for zero
-            }}
-            className="otp-input"
-          />
-          <Input
-            type="text"
-            maxLength={1}
-            defaultValue="0"
-            style={{
-              width: "44.57px",
-              height: "64px",
-              textAlign: "center",
-              marginRight: "10px",
-              borderRadius: "8px",
-              fontSize: "18px", // Larger font size
-              color: "#9DA1A9", // Red color for zero
-            }}
-            className="otp-input"
-          />
-          <Input
-            type="text"
-            defaultValue="0"
-            maxLength={1}
-            style={{
-              width: "44.57px",
-              height: "64px",
-              textAlign: "center",
-              marginRight: "10px",
-              borderRadius: "8px",
-              fontSize: "18px", // Larger font size
-              color: "#9DA1A9", // Red color for zero
-            }}
-            className="otp-input"
-          />
-          {/* Dash after 3rd input */}
+          {Array.from({ length: 3 }).map((_, i) => (
+            <Input
+              key={i}
+              type="text"
+              maxLength={1}
+              defaultValue="0"
+              style={{
+                width: "44.57px",
+                height: "64px",
+                textAlign: "center",
+                marginRight: "10px",
+                borderRadius: "8px",
+                fontSize: "18px",
+                color: "#9DA1A9",
+              }}
+              className="otp-input"
+            />
+          ))}
+
+          {/* Dash */}
           <span style={{ fontSize: "24px", marginRight: "10px" }}>-</span>
 
           {/* Last Three Inputs */}
-          <Input
-            type="text"
-            maxLength={1}
-            defaultValue="0"
-            style={{
-              width: "44.57px",
-              height: "64px",
-              textAlign: "center",
-              marginRight: "10px",
-              borderRadius: "8px",
-              fontSize: "18px", // Larger font size
-              color: "#9DA1A9", // Red color for zero
-            }}
-            className="otp-input"
-          />
-          <Input
-            type="text"
-            maxLength={1}
-            defaultValue="0"
-            style={{
-              width: "44.57px",
-              height: "64px",
-              textAlign: "center",
-              marginRight: "10px",
-              borderRadius: "8px",
-              fontSize: "18px", // Larger font size
-              color: "#9DA1A9", // Red color for zero
-            }}
-            className="otp-input"
-          />
-          <Input
-            type="text"
-            maxLength={1}
-            defaultValue="0" // Default value as 0
-            style={{
-              width: "44.57px",
-              height: "64px",
-              textAlign: "center",
-              marginRight: "10px",
-              borderRadius: "8px",
-              fontSize: "18px", // Larger font size
-              color: "#9DA1A9", // Red color for zero
-            }}
-            className="otp-input"
-          />
+          {Array.from({ length: 3 }).map((_, i) => (
+            <Input
+              key={i + 3}
+              type="text"
+              maxLength={1}
+              defaultValue="0"
+              style={{
+                width: "44.57px",
+                height: "64px",
+                textAlign: "center",
+                marginRight: "10px",
+                borderRadius: "8px",
+                fontSize: "18px",
+                color: "#9DA1A9",
+              }}
+              className="otp-input"
+            />
+          ))}
         </div>
       </Form.Item>
 
